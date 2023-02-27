@@ -18,7 +18,7 @@
 
 <body>
     <section>
-        <form method="post" action="./info.html">
+        <form method="post" action="./info.html" id="Form">
             <div class="container form">
                 <div class="row">
                     <div class="col-md-12">
@@ -309,7 +309,11 @@
             dataobj.telephone2 = document.getElementById("telephone2").value;
             dataobj.relation = document.getElementById("relation").value;
 
+            localStorage.clear();
             localStorage.setItem("data", JSON.stringify(dataobj));
+
+            // document.getElementById("reset").click();
+            // document.getElementById("Form").reset();
             // window.open("./info.html", "_self");
         }
     </script>
