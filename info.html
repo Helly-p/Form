@@ -70,7 +70,15 @@
                 <div class="row">
                     <div class="col-md-6">
                         <label for="gender">Gender :</label>
-                        <input type="text" id="gender" name="gender" readonly>
+                        <input type="radio" name="gender" id="male" disabled>
+                        <label for="male">Male</label>
+
+                        <input type="radio" name="gender" id="female" disabled>
+                        <label for="female">Female</label>
+
+                        <input type="radio" name="gender" id="other" disabled>
+                        <label for="other">Other</label>
+                        <!-- <input type="text" id="gender" name="gender" readonly> -->
                     </div>
                     <div class="col-md-6">
                         <label for="profile_pic">Profile Picture :</label>
@@ -225,7 +233,19 @@
             document.getElementById("passportno").value = data.passportno;
             document.getElementById("pan_no").value = data.pan_no;
             document.getElementById("bloodgrp").value = data.bloodgrp;
-            document.getElementById("gender").value = data.gender;
+
+
+            // document.getElementById("gender").value = data.gender;
+            
+            const gender = data.gender;
+            if(gender == "male"){
+                document.getElementById("male").checked  = true;
+            }
+            else{
+                document.getElementById("female").checked = true;
+            }
+
+            
             document.getElementById("hobby").value = data.hobby;
 
             document.getElementById("name2").value = data.name2;
