@@ -81,7 +81,7 @@ select {
 
 
 textarea {
-    background-color: transparent;
+    /* background-color: transparent; */
     margin-bottom: -38px;
     font-size: 18px;
     border: none;
