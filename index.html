@@ -17,13 +17,13 @@
 </head>
 
 <body>
-    <section>
+<section>
         <form method="post" action="./info.html" id="Form">
             <div class="container form">
                 <div class="row">
                     <div class="col-md-12">
                         <div id="personal">
-                            <h4 class="btn btn-secondary" disabled>PERSONAL</h4><span>.</span>
+                            <h4 class="text-white bg-secondary">PERSONAL</h4><span>.</span>
                         </div>
                     </div>
                 </div>
@@ -31,8 +31,8 @@
                 <div class="row">
                     <div class="col-md-12">
                         <label for="name">Name :</label>
-                        <input type="text" name="name" id="name" title="Only characters allowed."
-                            pattern="[a-zA-Z][a-zA-Z\s]*" required>
+                        <input type="text" name="name" id="name" oninvalid="this.setCustomValidity('Hello')" title="Only characters allowed."
+                            pattern="[a-zA-Z\s]*" required>
                     </div>
                 </div>
                 <hr />
@@ -74,7 +74,6 @@
                         <hr />
                     </div>
                 </div>
-                <hr />
                 <div class="row">
                     <div class="col-md-6">
                         <label for="gender">Gender :</label>
