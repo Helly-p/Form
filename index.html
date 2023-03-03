@@ -17,7 +17,7 @@
 </head>
 
 <body>
-<section>
+    <section>
         <form method="post" action="./info.html" id="Form">
             <div class="container form">
                 <div class="row">
@@ -31,18 +31,24 @@
                 <div class="row">
                     <div class="col-md-12">
                         <label for="name">Name :</label>
-                        <input type="text" name="name" id="name" oninvalid="this.setCustomValidity('Hello')" title="Only characters allowed."
-                            pattern="[a-zA-Z\s]*" required>
+                        <input type="text" name="name" id="name" onblur="validateName(this)"
+                            oninput="validateName(this)" title="Only characters allowed." pattern="[a-zA-Z\s]*"
+                            required>
                     </div>
                 </div>
                 <hr />
+                <p id="name_error"></p>
+                <br>
                 <div class="row">
                     <div class="col-md-12">
                         <label for="office">Office :</label>
-                        <textarea type="text" name="office" id="office" rows="2" required></textarea>
+                        <textarea type="text" name="office" id="office" rows="2" onblur="validateOffice(this)"
+                            oninput="validateOffice(this)" required></textarea>
                     </div>
                 </div>
                 <hr />
+                <p id="office_error"></p>
+                <br>
                 <div class="row">
                     <div class="col-md-12">
                     </div>
@@ -50,7 +56,8 @@
                 <div class="row">
                     <div class="col-md-12">
                         <label for="residence">Residence :</label>
-                        <textarea type="text" name="residence" id="residence" rows="2" required></textarea>
+                        <textarea type="text" name="residence" id="residence" rows="2" onblur="validateOffice(this)"
+                            oninput="validateOffice(this)" required></textarea>
                     </div>
                 </div>
                 <div class="row">
@@ -58,6 +65,9 @@
                     </div>
                 </div>
                 <hr />
+                <br>
+                <p id="residence_error"></p>
+                <br>
                 <div class="row">
                     <div class="col-md-6">
                         <label for="mobile">Mobile :</label>
@@ -67,14 +77,21 @@
                             <option value="(+44)">(+44)</option>
                         </select>
                         <input type="text" name="mobile" id="mobile" pattern="[6-9]{1}[0-9]{9}"
-                            title="Enter valid number." maxlength="10" required>
+                            title="Enter valid number." maxlength="10" onblur="validateMobile(this)"
+                            oninput="validateMobile(this)" required>
                         <hr />
+                        <p id="mobile_error"></p>
+                        <br>
                     </div>
                     <div class="col-md-6">
                         <label for="telephone">Telephone :</label>
-                        <input type="tel" name="telephone" id="telephone" pattern="[6-9]{1}[0-9]{9}" maxlength="10"
+                        <input type="tel" name="telephone" id="telephone" pattern="[6-9]{1}[0-9]{9}" maxlength="10" onblur="validateMobile(this)"
+                        oninput="validateMobile(this)" 
                             required>
                         <hr />
+
+                        <p id="telephone_error"></p>
+                        <br>
                     </div>
                 </div>
                 <div class="row">
@@ -89,13 +106,19 @@
                         <input type="radio" id="other" name="gender" onclick="validateGender(this.value)" value="Other"
                             required>
                         <label for="other">Other</label>
+                        <hr />
+                        <br>
                     </div>
                     <div class="col-md-6">
                         <label for="profile_pic">Profile Picture :</label>
                         <input type="file" name="profile_pic" id="profile_pic" accept="image/*" required>
+                        <br>
+                        <img alt="" id="img">
+                        <hr />
+                        <p id="profile_pic_error"></p>
+                        <br>
                     </div>
                 </div>
-                <hr />
                 <div class="row">
                     <div class="col-md-12">
                         <label for="emailid">Email ID :</label>
@@ -103,12 +126,17 @@
                     </div>
                 </div>
                 <hr />
+                <p id="office_error">Hello</p>
+                <br>
                 <div class="row">
                     <div class="col-md-6">
                         <label for="aadharno">Aadhar No. :</label>
                         <input type="text" name="aadharno" id="aadharno" pattern="[0-9]*" maxlength="12" title="Only numbers allowed
                         ." required>
                         <hr />
+
+                        <p id="office_error">Hello</p>
+                        <br>
                     </div>
 
                     <div class="col-md-6">
@@ -117,6 +145,9 @@
                             maxlength="15" required>
                         <!-- GSTIN Format : 22 AAA09AAAZ7 1 Z 6 -->
                         <hr />
+
+                        <p id="office_error">Hello</p>
+                        <br>
                     </div>
                 </div>
                 <div class="row">
@@ -124,23 +155,35 @@
                         <label for="vehicleno">Vehicle No. :</label>
                         <input type="text" name="vehicleno" id="vehicleno" required>
                         <hr />
+
+                        <p id="office_error">Hello</p>
+                        <br>
                     </div>
                     <div class="col-md-6">
                         <label for="dlno">DL No. :</label>
                         <input type="text" name="dlno" id="dlno" required>
                         <hr />
+                        <p id="office_error">Hello</p>
+                        <br>
                     </div>
                 </div>
                 <div class="row">
                     <div class="col-md-6">
                         <label for="bank_acc">Bank A/c With :</label>
-                        <input type="text" name="bank_acc" id="bank_acc" pattern="[A-Za-z]*" required>
+                        <input type="text" name="bank_acc" id="bank_acc" pattern="[A-Za-z]*" onblur="validateName(this)"
+                        oninput="validateName(this)" required>
                         <hr />
+
+                        <p id="bank_acc_error"></p>
+                        <br>
                     </div>
                     <div class="col-md-6">
                         <label for="accno">Account No. :</label>
                         <input type="number" name="accno" id="accno" required>
                         <hr />
+
+                        <p id="office_error">Hello</p>
+                        <br>
                     </div>
                 </div>
                 <div class="row">
@@ -148,30 +191,45 @@
                         <label for="debitcardno">Debit Card No.:</label>
                         <input type="text" name="debitcardno" id="debitcardno" pattern="[0-9]*" maxlength="16" required>
                         <hr />
+
+                        <p id="office_error">Hello</p>
+                        <br>
                     </div>
                     <div class="col-md-6">
                         <label for="creditcardno">Credit Card No. :</label>
                         <input type="text" name="creditcardno" id="creditcardno" pattern="[0-9]*" maxlength="16"
                             required>
                         <hr />
+
+                        <p id="office_error">Hello</p>
+                        <br>
                     </div>
                 </div>
                 <div class="row">
                     <div class="col-md-6">
                         <label for="passportno">Passport No.:</label>
-                        <input type="number" name="passportno" id="passportno">
+                        <input type="number" name="passportno" id="passportno" onblur="validateMobile(this)"
+                        oninput="validateMobile(this)" required>
                         <hr />
+
+                        <p id="passportno_error"></p>
+                        <br>
                     </div>
                     <div class="col-md-6">
                         <label for="pan_no">PAN No. :</label>
-                        <input type="number" name="pan_no" id="pan_no">
+                        <input type="text" name="pan_no" id="pan_no" onblur="validateMobile(this)"
+                        oninput="validateMobile(this)" required>
                         <hr />
+
+                        <p id="pan_no_error"></p>
+                        <br>
                     </div>
                 </div>
                 <div class="row">
                     <div class="col-md-6">
                         <label for="bloodgrp">Blood Group :</label>
-                        <select name="bloodgrp" id="bloodgrp">
+                        <select name="bloodgrp" id="bloodgrp" required>
+                            <option value="" selected disabled>Select</option>
                             <option value="A+">A+</option>
                             <option value="A-">A-</option>
                             <option value="B+">B+</option>
@@ -182,6 +240,9 @@
                             <option value="O-">O-</option>
                         </select>
                         <hr />
+
+                        <p id="office_error">Hello</p>
+                        <br>
                     </div>
                     <div class="col-md-6">
                         <label for="hobbies">Hobbies :</label>
@@ -192,6 +253,9 @@
                         <input type="checkbox" id="hobby3" name="hobby3" value="Eating">
                         <label for="hobby3">Eating</label>
                         <hr />
+
+                        <p id="office_error">Hello</p>
+                        <br>
                     </div>
                 </div>
                 <div class="row">
@@ -204,30 +268,44 @@
                         <hr style="width: 100%;" />
                         <label for="name2">Name :</label>
                         <input type="text" name="name2" id="name2" title="Only characters allowed."
-                            pattern="[a-zA-Z][a-zA-Z\s]*" required>
+                            pattern="[a-zA-Z][a-zA-Z\s]*" onblur="validateName(this)"
+                            oninput="validateName(this)" required>
                         <hr />
+                        <p id="name2_error"></p>
+                        <br>
                     </div>
                 </div>
                 <div class="row">
                     <div class="col-md-12">
                         <label for="mobile2">Mobile :</label>
                         <input type="tel" name="mobile2" id="mobile2" pattern="[6-9]{1}[0-9]{9}"
-                            title="Enter valid number." maxlength="10" required>
+                            title="Enter valid number." maxlength="10" onblur="validateMobile(this)"
+                            oninput="validateMobile(this)" required>
                         <hr />
+
+                        <p id="mobile2_error"></p>
+                        <br>
                     </div>
                 </div>
                 <div class="row">
                     <div class="col-md-6">
                         <label for="telephone2">Telephone :</label>
-                        <input type="tel" name="telephone2" id="telephone2" pattern="[6-9]{1}[0-9]{9}" maxlength="10"
+                        <input type="tel" name="telephone2" id="telephone2" pattern="[6-9]{1}[0-9]{9}" maxlength="10" onblur="validateMobile(this)"
+                        oninput="validateMobile(this)"
                             required>
                         <hr />
+                        <p id="telephone2_error"></p>
+                        <br>
                     </div>
                     <div class="col-md-6">
                         <label for="relation">Relation :</label>
                         <input type="text" name="relation" id="relation" title="Only characters allowed."
-                            pattern="[a-zA-Z][a-zA-Z\s]*" required>
+                            pattern="[a-zA-Z][a-zA-Z\s]*" onblur="validateName(this)"
+                            oninput="validateName(this)" required>
                         <hr />
+
+                        <p id="relation_error"></p>
+                        <br>
                     </div>
                 </div>
                 <div class="row">
@@ -251,74 +329,7 @@
             </div>
         </form>
     </section>
-    <script>
-        const dataobj = {};
-
-        // Gender Radio Selection
-        function validateGender(gender) {
-            dataobj.gender = gender;
-            // console.log(dataobj.gender);
-        }
-
-        // All data
-        function openData() {
-
-            dataobj.name = document.getElementById("name").value;
-            dataobj.office = document.getElementById("office").value;
-            dataobj.residence = document.getElementById("residence").value;
-
-            var country_code = document.getElementById("country_code").value;
-            var mobile = document.getElementById("mobile").value;
-            dataobj.mobileno = country_code + " " + mobile;
-
-            dataobj.telephone = document.getElementById("telephone").value;
-            dataobj.profile_pic = document.getElementById("profile_pic").value;
-            dataobj.emailid = document.getElementById("emailid").value;
-            dataobj.aadharno = document.getElementById("aadharno").value;
-            dataobj.gstin = document.getElementById("gstin").value;
-            dataobj.vehicleno = document.getElementById("vehicleno").value;
-            dataobj.dlno = document.getElementById("dlno").value;
-            dataobj.bank_acc = document.getElementById("bank_acc").value;
-            dataobj.accno = document.getElementById("accno").value;
-            dataobj.debitcardno = document.getElementById("debitcardno").value;
-            dataobj.creditcardno = document.getElementById("creditcardno").value;
-            dataobj.passportno = document.getElementById("passportno").value;
-            dataobj.pan_no = document.getElementById("pan_no").value;
-            dataobj.bloodgrp = document.getElementById("bloodgrp").value;
-
-            // Hobby Checkbox validation
-            var hobby1 = document.getElementById("hobby1");
-            var hobby2 = document.getElementById("hobby2");
-            var hobby3 = document.getElementById("hobby3");
-            var hobby = "";
-
-            if (hobby1.checked == true) {
-                var h1 = document.getElementById("hobby1").value;
-                hobby = h1;
-            }
-            if (hobby2.checked == true) {
-                var h2 = document.getElementById("hobby2").value;
-                hobby += ", " + h2;
-            }
-            if (hobby3.checked == true) {
-                var h3 = document.getElementById("hobby3").value;
-                hobby += ", " + h3;
-            }
-            dataobj.hobby = hobby;
-
-            dataobj.name2 = document.getElementById("name2").value;
-            dataobj.mobile2 = document.getElementById("mobile2").value;
-            dataobj.telephone2 = document.getElementById("telephone2").value;
-            dataobj.relation = document.getElementById("relation").value;
-
-            localStorage.clear();
-            localStorage.setItem("data", JSON.stringify(dataobj));
-
-            // document.getElementById("reset").click();
-            // document.getElementById("Form").reset();
-            // window.open("./info.html", "_self");
-        }
-    </script>
+    <script src="./index.js"></script>
 </body>
 
 </html>

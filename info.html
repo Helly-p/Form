@@ -23,7 +23,7 @@
                 <div class="row">
                     <div class="col-md-12">
                         <div id="personal">
-                            <h4 class="btn btn-secondary" disabled>PERSONAL</h4><span>.</span>
+                            <h4 class="text-white bg-secondary" disabled>PERSONAL</h4><span>.</span>
                         </div>
                     </div>
                 </div>
@@ -82,6 +82,7 @@
                         <label for="profile_pic">Profile Picture :</label>
                         <input type="text" name="profile_pic" id="profile_pic" readonly>
                     </div>
+                    <img alt="" id="img">
                 </div>
                 <hr />
                 <div class="row">
@@ -212,6 +213,17 @@
 
         // All data
         function openData() {
+
+            let profile_pic = data.profile_pic;
+            // let pic = profile_pic.slice(12,profile_pic.length);
+
+            // let profile_pic = document.getElementById("profile_pic").value;
+            let pic = profile_pic.slice(12,profile_pic.length);
+            // alert(pic);
+
+            const img = document.getElementById('img');
+            img.setAttribute('src',"./img/"+pic);
+            // img.setAttribute('src',profile_pic);
 
             document.getElementById("name").value = data.name;
             document.getElementById("office").value = data.office;

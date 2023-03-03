@@ -66,12 +66,12 @@ input[type="checkbox"] {
 
 select {
     color: black;
-    width: 60px;
+    width: 80px;
     outline: none;
     font-size: 18px;
     padding: 2px;
     margin-left: 10px;
-    background-color: transparent;
+    /* background-color: transparent; */
 }
 
 #country_code {
@@ -81,7 +81,7 @@ select {
 
 
 textarea {
-    background-color: transparent;
+    /* background-color: transparent; */
     margin-bottom: -38px;
     font-size: 18px;
     border: none;
@@ -129,6 +129,12 @@ hr:nth-child(10) {
 h5 {
     color: red;
     font-weight: light;
+}
+
+p{
+    color: red;
+    font-size: 17px;
+    margin-top: -18px;
 }
 
 @media (max-width:768px) {
