@@ -56,6 +56,11 @@
                 <div class="row">
                     <div class="col-md-6">
                         <label for="mobile">Mobile :</label>
+                        <select name="country_code" id="country_code" disabled>
+                            <option value="(+91)">(+91)</option>
+                            <option value="(+1)">(+1)</option>
+                            <option value="(+44)">(+44)</option>
+                        </select>
                         <input type="text" name="mobile" id="mobile" readonly>
                         <hr />
                     </div>
@@ -156,15 +161,38 @@
                 <div class="row">
                     <div class="col-md-6">
                         <label for="bloodgrp">Blood Group :</label>
-                        <input type="text" id="bloodgrp" name="bloodgrp" readonly>
+                        <select name="bloodgrp" id="bloodgrp" disabled>
+                            <option value="A+">A+</option>
+                            <option value="A-">A-</option>
+                            <option value="B+">B+</option>
+                            <option value="B-">B-</option>
+                            <option value="AB+">AB+</option>
+                            <option value="AB-">AB-</option>
+                            <option value="O+">O+</option>
+                            <option value="O-">O-</option>
+                        </select>
                         <hr />
                     </div>
                     <div class="col-md-6">
                         <label for="hobbies">Hobbies :</label>
-                        <input type="text" id="hobby" name="hobby" readonly>
+                        <input type="checkbox" id="hobby1" name="hobby" value="Boxing">
+                        <label for="hobby1">Boxing</label>
+                        <input type="checkbox" id="hobby2" name="hobby" value="Dancing">
+                        <label for="hobby2">Dancing</label>
+                        <input type="checkbox" id="hobby3" name="hobby" value="Eating">
+                        <label for="hobby3">Eating</label>
+
+                        <!-- <input type="text" id="hobby" name="hobby" readonly> -->
                         <hr />
                     </div>
                 </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <label for="dob">Date of birth :</label>
+                        <input type="date" name="dob" id="dob" readonly>
+                    </div>
+                </div>
+                <hr />
                 <div class="row">
                     <div class="col-md-12">
                         <h5>IN CASE OF EMERGENCY PLEASE NOTIFY</h5>
@@ -218,17 +246,20 @@
             // let pic = profile_pic.slice(12,profile_pic.length);
 
             // let profile_pic = document.getElementById("profile_pic").value;
-            let pic = profile_pic.slice(12,profile_pic.length);
+            let pic = profile_pic.slice(12, profile_pic.length);
             // alert(pic);
 
             const img = document.getElementById('img');
-            img.setAttribute('src',"./img/"+pic);
+            img.setAttribute('src', "./img/" + pic);
             // img.setAttribute('src',profile_pic);
 
             document.getElementById("name").value = data.name;
             document.getElementById("office").value = data.office;
             document.getElementById("residence").value = data.residence;
-            document.getElementById("mobile").value = data.mobileno;
+
+            document.getElementById("country_code").value = data.country_code;
+
+            document.getElementById("mobile").value = data.mobile;
             document.getElementById("telephone").value = data.telephone;
             document.getElementById("profile_pic").value = data.profile_pic;
             document.getElementById("emailid").value = data.emailid;
@@ -243,20 +274,32 @@
             document.getElementById("passportno").value = data.passportno;
             document.getElementById("pan_no").value = data.pan_no;
             document.getElementById("bloodgrp").value = data.bloodgrp;
-
+            document.getElementById("dob").value = data.dob;
 
             // document.getElementById("gender").value = data.gender;
-            
+
             const gender = data.gender;
-            if(gender == "male"){
-                document.getElementById("male").checked  = true;
+            if (gender == "male") {
+                document.getElementById("male").checked = true;
             }
-            else{
+            else if (gender == "female") {
                 document.getElementById("female").checked = true;
             }
+            else {
+                document.getElementById("other").checked = true;
+            }
 
-            
-            document.getElementById("hobby").value = data.hobby;
+            var hobby_toget = data.hobby;
+            var hobby = document.getElementsByName("hobby");
+            hobby_toget.forEach(hobby_name => {
+                hobby.forEach(array => {
+                    if (hobby_name == array.value) {
+                        array.checked = true;
+                    }
+                })
+            });
+
+            // document.getElementById("hobby").value = data.hobby;
 
             document.getElementById("name2").value = data.name2;
             document.getElementById("mobile2").value = data.mobile2;

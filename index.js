@@ -43,6 +43,91 @@ function validateMobile(mobile){
         document.getElementById(name+"_error").innerHTML = "";
     }
 }
+function validateEmail(email){
+    let pattern = /^[a-zA-Z0-9+_.-]+@[a-zA-Z0-9]+[.]+[a-zA-Z.]+$/;
+    if(email.length==0){
+        document.getElementById("email_error").innerHTML = "*This field is required.";
+    }
+    else if(!email.match(pattern)){
+        document.getElementById("email_error").innerHTML = "*Please enter valid email format.";
+    }
+    else{
+        document.getElementById("email_error").innerHTML = "";
+    }
+}
+function validateAadhar(aadharno){
+    let pattern = /^[0-9]{12}$/;
+    if(aadharno.length==0){
+        document.getElementById("aadhar_error").innerHTML = "*This field is required.";
+    }
+    else if(!aadharno.match(pattern)){
+        document.getElementById("aadhar_error").innerHTML = "*Please enter valid aadharno format.";
+    }
+    else{
+        document.getElementById("aadhar_error").innerHTML = "";
+    }
+}
+
+function validateGST(gstinno){
+    let pattern = /^[0-9]{2}[A-Z0-9]{10}[0-9]{1}[Z]{1}[0-9]{1}$/;
+    if(gstinno.length==0){
+        document.getElementById("gstin_error").innerHTML = "*This field is required.";
+    }
+    else if(!gstinno.match(pattern)){
+        document.getElementById("gstin_error").innerHTML = "*Please enter valid GST No format.";
+    }
+    else{
+        document.getElementById("gstin_error").innerHTML = "";
+    }
+}
+
+function validateVehicleNo(vehicleno){
+    let pattern = /^[A-Z]{2}[0-9]{2}[A-Z]{2}[0-9]{4}$/;
+    if(vehicleno.length==0){
+        document.getElementById("vehicleno_error").innerHTML = "*This field is required.";
+    }
+    else if(!vehicleno.match(pattern)){
+        document.getElementById("vehicleno_error").innerHTML = "*Please enter valid Vehicle No format.";
+    }
+    else{
+        document.getElementById("vehicleno_error").innerHTML = "";
+    }
+}
+
+function validateAllnumbers(data){
+    let number = data.value;
+    let name = data.name;
+    let pattern = /^[0-9]+$/;
+    if(number.length==0){
+        document.getElementById(name+"_error").innerHTML = "*This field is required.";
+    }
+    else if(!number.match(pattern)){
+        document.getElementById(name+"_error").innerHTML = "*Only numbers allowed.";
+    }
+    else{
+        document.getElementById(name+"_error").innerHTML = "";
+    }
+}
+
+function validateBloodgrp(bloodgrp){
+    if(bloodgrp.length==0){
+        document.getElementById("bloodgrp_error").innerHTML = "*This field is required.";
+    }
+    else{
+        document.getElementById("bloodgrp_error").innerHTML = "";
+    }
+}
+
+// function validateHobby(){
+//     // alert(1);
+//     var hobby = document.getElementsByName("hobby");
+//     alert(hobby.length);
+//     if(hobby.length < 2){
+//         document.getElementById("hobby_error").innerHTML = "Please select atleast 2 hobby";
+//     }
+// }
+
+
 // function validateResidence(residence){
 //     let pattern = /^[A-Za-z0-9\s]+$/;
 //     if(residence.length==0){
@@ -80,6 +165,16 @@ const dataobj = {};
         // All data
         function openData() {
 
+            var hobby_tosend = [];
+            let count = 0;
+            hobby.forEach(hobby_name => {
+                if (hobby_name.checked == true) {
+                    count++;
+                    hobby_tosend.push(hobby_name.value);
+                }
+            });
+            dataobj.hobby = hobby_tosend;
+
             // let profile_pic = document.getElementById("profile_pic").value;
             // let pic = profile_pic.slice(12,profile_pic.length);
             // alert(pic);
@@ -87,18 +182,17 @@ const dataobj = {};
             {
                 document.getElementById("profile_pic_error").innerHTML = "Please upload a picture."
             }
-
-
             // const img = document.getElementById('img');
             // img.setAttribute('src',"./img/1.png");
             // alert("hello");
+
             dataobj.name = document.getElementById("name").value;
             dataobj.office = document.getElementById("office").value;
             dataobj.residence = document.getElementById("residence").value;
 
-            var country_code = document.getElementById("country_code").value;
-            var mobile = document.getElementById("mobile").value;
-            dataobj.mobileno = country_code + " " + mobile;
+            dataobj.country_code = document.getElementById("country_code").value;
+            dataobj.mobile = document.getElementById("mobile").value;
+            // dataobj.mobileno = country_code + " " + mobile;
 
             dataobj.telephone = document.getElementById("telephone").value;
             dataobj.profile_pic = document.getElementById("profile_pic").value;
@@ -114,26 +208,29 @@ const dataobj = {};
             dataobj.passportno = document.getElementById("passportno").value;
             dataobj.pan_no = document.getElementById("pan_no").value;
             dataobj.bloodgrp = document.getElementById("bloodgrp").value;
+            dataobj.dob = document.getElementById("dob").value;
 
+            // alert(hobby_tosend);
+            // alert(hobby[0].value);
             // Hobby Checkbox validation
-            var hobby1 = document.getElementById("hobby1");
-            var hobby2 = document.getElementById("hobby2");
-            var hobby3 = document.getElementById("hobby3");
-            var hobby = "";
+            // var hobby1 = document.getElementById("hobby1");
+            // var hobby2 = document.getElementById("hobby2");
+            // var hobby3 = document.getElementById("hobby3");
+            // var hobby = "";
 
-            if (hobby1.checked == true) {
-                var h1 = document.getElementById("hobby1").value;
-                hobby = h1;
-            }
-            if (hobby2.checked == true) {
-                var h2 = document.getElementById("hobby2").value;
-                hobby += ", " + h2;
-            }
-            if (hobby3.checked == true) {
-                var h3 = document.getElementById("hobby3").value;
-                hobby += ", " + h3;
-            }
-            dataobj.hobby = hobby;
+            // if (hobby1.checked == true) {
+            //     var h1 = document.getElementById("hobby1").value;
+            //     hobby = h1;
+            // }
+            // if (hobby2.checked == true) {
+            //     var h2 = document.getElementById("hobby2").value;
+            //     hobby += ", " + h2;
+            // }
+            // if (hobby3.checked == true) {
+            //     var h3 = document.getElementById("hobby3").value;
+            //     hobby += ", " + h3;
+            // }
+            // dataobj.hobby = hobby;
 
             dataobj.name2 = document.getElementById("name2").value;
             dataobj.mobile2 = document.getElementById("mobile2").value;
