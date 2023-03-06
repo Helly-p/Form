@@ -71,7 +71,7 @@ select {
     font-size: 18px;
     padding: 2px;
     margin-left: 10px;
-    /* background-color: transparent; */
+    background-color: transparent;
 }
 
 #country_code {
@@ -81,7 +81,7 @@ select {
 
 
 textarea {
-    /* background-color: transparent; */
+    background-color: transparent;
     margin-bottom: -38px;
     font-size: 18px;
     border: none;

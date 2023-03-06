@@ -165,15 +165,7 @@ const dataobj = {};
         // All data
         function openData() {
 
-            var hobby_tosend = [];
-            let count = 0;
-            hobby.forEach(hobby_name => {
-                if (hobby_name.checked == true) {
-                    count++;
-                    hobby_tosend.push(hobby_name.value);
-                }
-            });
-            dataobj.hobby = hobby_tosend;
+            // console.log("Hello");
 
             // let profile_pic = document.getElementById("profile_pic").value;
             // let pic = profile_pic.slice(12,profile_pic.length);
@@ -210,33 +202,24 @@ const dataobj = {};
             dataobj.bloodgrp = document.getElementById("bloodgrp").value;
             dataobj.dob = document.getElementById("dob").value;
 
-            // alert(hobby_tosend);
-            // alert(hobby[0].value);
-            // Hobby Checkbox validation
-            // var hobby1 = document.getElementById("hobby1");
-            // var hobby2 = document.getElementById("hobby2");
-            // var hobby3 = document.getElementById("hobby3");
-            // var hobby = "";
-
-            // if (hobby1.checked == true) {
-            //     var h1 = document.getElementById("hobby1").value;
-            //     hobby = h1;
-            // }
-            // if (hobby2.checked == true) {
-            //     var h2 = document.getElementById("hobby2").value;
-            //     hobby += ", " + h2;
-            // }
-            // if (hobby3.checked == true) {
-            //     var h3 = document.getElementById("hobby3").value;
-            //     hobby += ", " + h3;
-            // }
-            // dataobj.hobby = hobby;
+            var hobby_tosend = [];
+            hobby = document.getElementsByName("hobby");
+            // let count = 0;
+            hobby.forEach(hobby_name => {
+                if (hobby_name.checked == true) {
+                    // count++;
+                    hobby_tosend.push(hobby_name.value);
+                }
+            });
+            // alert("Hello");
+            dataobj.hobby = hobby_tosend;
 
             dataobj.name2 = document.getElementById("name2").value;
             dataobj.mobile2 = document.getElementById("mobile2").value;
             dataobj.telephone2 = document.getElementById("telephone2").value;
             dataobj.relation = document.getElementById("relation").value;
 
+            // alert("Hello");
             localStorage.clear();
             localStorage.setItem("data", JSON.stringify(dataobj));
 
