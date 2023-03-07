@@ -165,54 +165,129 @@ const dataobj = {};
         // All data
         function openData() {
 
-            // console.log("Hello");
+            let name = document.getElementById("name").value;
+            let office = document.getElementById("office").value;
+            let residence = document.getElementById("residence").value;
+            let country_code = document.getElementById("country_code").value;
+            let mobile = document.getElementById("mobile").value;
+            let telephone = document.getElementById("telephone").value;
+            let profile_pic = document.getElementById("profile_pic").value;
+            let emailid = document.getElementById("emailid").value;
+            let aadharno = document.getElementById("aadharno").value;
+            let gstin = document.getElementById("gstin").value;
+            let vehicleno = document.getElementById("vehicleno").value;
+            let dlno = document.getElementById("dlno").value;
+            let bank_acc = document.getElementById("bank_acc").value;
+            let accno = document.getElementById("accno").value;
+            let debitcardno = document.getElementById("debitcardno").value;
+            let creditcardno = document.getElementById("creditcardno").value;
+            let passportno = document.getElementById("passportno").value;
+            let pan_no = document.getElementById("pan_no").value;
+            let bloodgrp = document.getElementById("bloodgrp").value;
+            let dob = document.getElementById("dob").value;
+
+            if(name.length==0){
+                document.getElementById("name_error").innerHTML = "*This field is required.";
+            }
+            if(office.length==0){
+                document.getElementById("office_error").innerHTML = "*This field is required.";
+            }
+            if(residence.length==0){
+                document.getElementById("residence_error").innerHTML = "*This field is required.";
+            }
+            if(mobile.length==0){
+                document.getElementById("mobile_error").innerHTML = "*This field is required.";
+            }
+            if(telephone.length==0){
+                document.getElementById("telephone_error").innerHTML = "*This field is required.";
+            }
+            if(profile_pic.length==0){
+                document.getElementById("profile_pic_error").innerHTML = "*Please upload a picture.";
+            }
+            if(emailid.length==0){
+                document.getElementById("email_error").innerHTML = "*This field is required.";
+            }
+            if(aadharno.length==0){
+                document.getElementById("aadhar_error").innerHTML = "*This field is required.";
+            }
+            if(gstin.length==0){
+                document.getElementById("gstin_error").innerHTML = "*This field is required.";
+            }
+            if(vehicleno.length==0){
+                document.getElementById("vehicleno_error").innerHTML = "*This field is required.";
+            }
+            if(bank_acc.length==0){
+                document.getElementById("bank_acc_error").innerHTML = "*This field is required.";
+            }
+            if(accno.length==0){
+                document.getElementById("accno_error").innerHTML = "*This field is required.";
+            }
+            if(dlno.length==0){
+                document.getElementById("dlno_error").innerHTML = "*This field is required.";
+            }
+            if(debitcardno.length==0){
+                document.getElementById("debitcardno_error").innerHTML = "*This field is required.";
+            }
+            if(creditcardno.length==0){
+                document.getElementById("creditcardno_error").innerHTML = "*This field is required.";
+            }
+            if(passportno.length==0){
+                document.getElementById("passportno_error").innerHTML = "*This field is required.";
+            }
+            if(pan_no.length==0){
+                document.getElementById("pan_no_error").innerHTML = "*This field is required.";
+            }
+            if(bloodgrp.length==0){
+                document.getElementById("bloodgrp_error").innerHTML = "*This field is required.";
+            }
+
+
+            var hobby_tosend = [];
+            hobby = document.getElementsByName("hobby");
+            let count = 0;
+            hobby.forEach(hobby_name => {
+                if (hobby_name.checked == true) {
+                    count++;
+                    hobby_tosend.push(hobby_name.value);
+                }
+            });
+            // alert(count)
+            if(count < 2){
+                document.getElementById("hobby_error").innerHTML = "*Please choose more than 2 hobbies.";
+            }
+            dataobj.hobby = hobby_tosend;
 
             // let profile_pic = document.getElementById("profile_pic").value;
             // let pic = profile_pic.slice(12,profile_pic.length);
             // alert(pic);
-            if(profile_pic.length==0)
-            {
-                document.getElementById("profile_pic_error").innerHTML = "Please upload a picture."
-            }
+            // if(profile_pic.length==0)
+            // {
+            //     document.getElementById("profile_pic_error").innerHTML = "Please upload a picture."
+            // }
             // const img = document.getElementById('img');
             // img.setAttribute('src',"./img/1.png");
             // alert("hello");
 
-            dataobj.name = document.getElementById("name").value;
-            dataobj.office = document.getElementById("office").value;
-            dataobj.residence = document.getElementById("residence").value;
-
-            dataobj.country_code = document.getElementById("country_code").value;
-            dataobj.mobile = document.getElementById("mobile").value;
-            // dataobj.mobileno = country_code + " " + mobile;
-
-            dataobj.telephone = document.getElementById("telephone").value;
-            dataobj.profile_pic = document.getElementById("profile_pic").value;
-            dataobj.emailid = document.getElementById("emailid").value;
-            dataobj.aadharno = document.getElementById("aadharno").value;
-            dataobj.gstin = document.getElementById("gstin").value;
-            dataobj.vehicleno = document.getElementById("vehicleno").value;
-            dataobj.dlno = document.getElementById("dlno").value;
-            dataobj.bank_acc = document.getElementById("bank_acc").value;
-            dataobj.accno = document.getElementById("accno").value;
-            dataobj.debitcardno = document.getElementById("debitcardno").value;
-            dataobj.creditcardno = document.getElementById("creditcardno").value;
-            dataobj.passportno = document.getElementById("passportno").value;
-            dataobj.pan_no = document.getElementById("pan_no").value;
-            dataobj.bloodgrp = document.getElementById("bloodgrp").value;
-            dataobj.dob = document.getElementById("dob").value;
-
-            var hobby_tosend = [];
-            hobby = document.getElementsByName("hobby");
-            // let count = 0;
-            hobby.forEach(hobby_name => {
-                if (hobby_name.checked == true) {
-                    // count++;
-                    hobby_tosend.push(hobby_name.value);
-                }
-            });
-            // alert("Hello");
-            dataobj.hobby = hobby_tosend;
+            dataobj.name = name;
+            dataobj.office = office;
+            dataobj.residence = residence;
+            dataobj.country_code = country_code;
+            dataobj.mobile = mobile;
+            dataobj.telephone = telephone;
+            dataobj.profile_pic = profile_pic;
+            dataobj.emailid = emailid;
+            dataobj.aadharno = aadharno;
+            dataobj.gstin = gstin;
+            dataobj.vehicleno = vehicleno;
+            dataobj.dlno = dlno;
+            dataobj.bank_acc = bank_acc;
+            dataobj.accno = accno;
+            dataobj.debitcardno = debitcardno;
+            dataobj.creditcardno = creditcardno;
+            dataobj.passportno = passportno;
+            dataobj.pan_no = pan_no;
+            dataobj.bloodgrp = bloodgrp;
+            dataobj.dob = dob;
 
             dataobj.name2 = document.getElementById("name2").value;
             dataobj.mobile2 = document.getElementById("mobile2").value;
