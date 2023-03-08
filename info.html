@@ -85,9 +85,9 @@
                     </div>
                     <div class="col-md-6">
                         <label for="profile_pic">Profile Picture :</label>
-                        <input type="text" name="profile_pic" id="profile_pic" readonly>
+                        <!-- <input type="text" name="profile_pic" id="profile_pic" readonly> -->
+                        <img alt="" width="100">
                     </div>
-                    <img alt="" id="img">
                 </div>
                 <hr />
                 <div class="row">
@@ -235,33 +235,18 @@
     </section>
     <script>
         const getdata = localStorage.getItem("data");
-
         data = JSON.parse(getdata);
-        // console.log(getteddata.name);
 
         // All data
         function openData() {
 
-            let profile_pic = data.profile_pic;
-            // let pic = profile_pic.slice(12,profile_pic.length);
-
-            // let profile_pic = document.getElementById("profile_pic").value;
-            let pic = profile_pic.slice(12, profile_pic.length);
-            // alert(pic);
-
-            // const img = document.getElementById('img');
-            // img.setAttribute('src', "./img/" + pic);
-            // img.setAttribute('src',profile_pic);
-
             document.getElementById("name").value = data.name;
             document.getElementById("office").value = data.office;
             document.getElementById("residence").value = data.residence;
-
             document.getElementById("country_code").value = data.country_code;
-
             document.getElementById("mobile").value = data.mobile;
             document.getElementById("telephone").value = data.telephone;
-            document.getElementById("profile_pic").value = data.profile_pic;
+            // document.getElementById("profile_pic").value = data.profile_pic;
             document.getElementById("emailid").value = data.emailid;
             document.getElementById("aadharno").value = data.aadharno;
             document.getElementById("gstin").value = data.gstin;
@@ -277,7 +262,6 @@
             document.getElementById("dob").value = data.dob;
 
             // document.getElementById("gender").value = data.gender;
-
             const gender = data.gender;
             if (gender == "male") {
                 document.getElementById("male").checked = true;
@@ -305,6 +289,10 @@
             document.getElementById("mobile2").value = data.mobile2;
             document.getElementById("telephone2").value = data.telephone2;
             document.getElementById("relation").value = data.relation;
+
+            const view = document.querySelector("img");
+            view.src = data.pic;
+            // alert(data.pic);
         }
     </script>
 </body>
