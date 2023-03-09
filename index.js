@@ -1,5 +1,6 @@
 const body = document.body;
 const dataobj = {};
+
 function validateName(name_str) {
 
     let str = name_str.value;
@@ -122,18 +123,22 @@ function validateBloodgrp(bloodgrp) {
 
 function viewFile() {
     const file = document.querySelector("input[type=file]").files[0];
-    const reader = new FileReader();
+    // console.log(file);
+    // const reader = new FileReader();
 
-    reader.addEventListener("load", () => {
-        // convert image file to base64 string
-        // preview.src = reader.result;
-        dataobj.pic = reader.result;
-        // alert(dataobj.pic);
-    });
+    // reader.addEventListener("load", () => {
+    //     // convert image file to base64 string
+    //     // preview.src = reader.result;
+    //     dataobj.pic = reader.result;
+    //     // alert(dataobj.pic);
+    // });
 
-    if (file) {
-        reader.readAsDataURL(file);
-    }
+    // if (file) {
+    //     reader.readAsDataURL(file);
+    // }
+    // console.log(URL);
+    document.getElementById("img").src = URL.createObjectURL(file);
+    // dataobj.pic = file;
 }
 
 // Gender Radio Selection

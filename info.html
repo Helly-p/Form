@@ -84,9 +84,9 @@
                         <!-- <input type="text" id="gender" name="gender" readonly> -->
                     </div>
                     <div class="col-md-6">
-                        <label for="profile_pic">Profile Picture :</label>
+                        <!-- <label for="profile_pic">Profile Picture :</label> -->
                         <!-- <input type="text" name="profile_pic" id="profile_pic" readonly> -->
-                        <img alt="" width="100">
+                        <!-- <img alt="" width="100"> -->
                     </div>
                 </div>
                 <hr />
@@ -290,8 +290,8 @@
             document.getElementById("telephone2").value = data.telephone2;
             document.getElementById("relation").value = data.relation;
 
-            const view = document.querySelector("img");
-            view.src = data.pic;
+            // const view = document.querySelector("img");
+            // view.src = URL.createObjectURL(data.pic);
             // alert(data.pic);
         }
     </script>
